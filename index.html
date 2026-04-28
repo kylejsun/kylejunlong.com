@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work With Me — Kyle Junlong</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #141312;
+    --ink: #eeeae4;
+    --body: #c0b8ae;
+    --muted: #6a6460;
+    --warm: #c9a96e;
+    --line: #272320;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* BACK LINK */
+  .back {
+    display: block;
+    padding: 28px 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .back:hover { color: var(--ink); }
+
+  /* HERO */
+  .tagline {
+    margin-top: 36px;
+    font-size: 1rem;
+    color: var(--body);
+    letter-spacing: 0.01em;
+  }
+
+  /* VIDEO */
+  .video-wrap {
+    margin: 28px 0 36px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #1a1816;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    overflow: hidden;
+  }
+  .video-wrap:hover { border-color: #3a3430; }
+  .play {
+    width: 48px; height: 48px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s;
+  }
+  .video-wrap:hover .play { border-color: var(--ink); }
+  .play svg { fill: var(--muted); margin-left: 3px; transition: fill 0.2s; }
+  .video-wrap:hover .play svg { fill: var(--ink); }
+
+  /* BODY COPY */
+  p {
+    color: var(--body);
+    margin-bottom: 18px;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  /* DIVIDERS */
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+  }
+
+  /* HOW I WORK */
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .phase-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .phase {
+    margin-bottom: 36px;
+  }
+  .phase:last-child { margin-bottom: 0; }
+
+  /* PRICE */
+  .price-section { text-align: center; }
+
+  .price {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.2rem, 7vw, 3.2rem);
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    font-weight: 300;
+    color: var(--body);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  /* URGENCY */
+  .urgency {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* PS */
+  .ps {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+  .ps a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .ps a:hover { color: var(--ink); }
+
+  /* SIG */
+  .sig {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    color: var(--ink);
+    display: block;
+    margin-top: 24px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 52px;
+    padding: 24px 0 40px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  footer a { color: var(--muted); text-decoration: none; margin: 0 6px; }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 480px) {
+    body { padding: 0 20px; }
+    .btn-row { flex-direction: column; align-items: stretch; }
+    .btn { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<p class="tagline" style="margin-top:36px;">you. me. 8 weeks. radical transformation.</p>
+
+<p>there's a version of your life that feels like it's actually yours.</p>
+<p>where self-improvement feels like play.</p>
+<p>where intimacy feels like expression instead of obligation.</p>
+<p>where you stop shrinking to be polite and start showing up as who you really are.</p>
+<p>where relationships feel effortless…because you've become the man you're proud of.</p>
+<p>when you commit to serious inner work, everything changes.</p>
+
+<hr>
+
+<p>that's the work i'd love to invite you into.</p>
+<p>what we focus on depends on where you're at. how i work with you is always the same.</p>
+
+<hr>
+
+<span class="section-label">how i work</span>
+
+<div class="phase">
+  <div class="phase-title">phase i: the blueprint</div>
+  <p>one complimentary 80-minute strategy session before we begin. we figure out where you are, whether you need focus or clarity, and build a clear picture of what the next 60 days look like. you leave with one keystone habit, a solid vision, and a plan you actually believe in.</p>
+</div>
+
+<div class="phase">
+  <div class="phase-title">phase ii: the deep dive</div>
+  <p>8x80 minute 1-1 calls. this is where the real work happens. inner and outer game. we don't just talk about who you want to be. we build your habits, confidence, and identity to match.</p>
+</div>
+
+<div class="phase">
+  <div class="phase-title">the accountability OS</div>
+  <p>a custom google sheet built around your keystone habit. this will be the foundation for us to track your daily wins, flag patterns, and give you a clear visual of your progress each week. simple enough to actually use. specific enough to actually make a difference.</p>
+</div>
+
+<div class="phase">
+  <div class="phase-title">8 weeks with me</div>
+  <p>my job is to do what no course, youtube video, or framework can. i watch how you're actually showing up: the habits you're avoiding, the stories you're telling yourself after a setback, the moments where you're in your head instead of in your life. when i see a pattern, i name it. when you spiral, i reframe it. when the plan needs to change, we change it. together.</p>
+  <p>just you and me. (optional 1-1 text support on whatsapp.)</p>
+</div>
+
+<hr>
+
+<div class="price-section">
+  <span class="urgency">2 spots open</span>
+  <span class="price">$1,200 USD</span>
+  <div class="btn-row">
+    <a class="btn" href="https://buy.stripe.com/8x28wP1eY3vN5TDaDFa3u00">pay upfront</a>
+    <a class="btn" href="https://buy.stripe.com/4gMeVdf5Oearci1aDFa3u01">$150/week for 8 weeks</a>
+  </div>
+</div>
+
+<hr>
+
+<p class="ps">ps... i decided to create this offer today because my calendar just opened up for 2 new clients. doors close as soon as the spots fill. if you have questions… feel free to <a href="http://instagram.com/kylejunlong">message me on IG</a>.</p>
+
+<span class="sig">-kyle</span>
+
+<footer>
+  © 2026 kyle junlong
+  <a href="#">terms</a>
+  <a href="#">policy</a>
+  <a href="#">disclaimer</a>
+</footer>
+
+</body>
+</html>
